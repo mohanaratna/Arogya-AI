@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #0d9488;
+    --primary-dark: #0f766e;
+    --primary-light: #ccfbf1;
+    --secondary: #0284c7;
+    --accent: #f59e0b;
+    --danger: #dc2626;
+    --bg-main: #f8fafc;
+    --text-main: #0f172a;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* High Contrast Mode Override */
+.high-contrast {
+  --bg-main: #000000 !important;
+  --text-main: #ffffff !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast button, .high-contrast a, .high-contrast input {
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast .card-box {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #334155 !important;
+}
+
+/* Low Bandwidth Mode Simplification */
+.low-bandwidth img {
+  display: none !important;
+}
+
+.low-bandwidth .gradient-bg {
+  background: #0f766e !important;
+}
+
+.low-bandwidth * {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+/* Pulse animation for voice recording */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 20px rgba(220, 38, 38, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.animate-pulse-mic {
+  animation: pulse-ring 1.5s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
